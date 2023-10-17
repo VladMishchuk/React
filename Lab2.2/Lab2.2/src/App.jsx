@@ -1,34 +1,62 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import PostForm from "./components/PostForm.jsx";
+import PostList from "./components/PostList.jsx"
+import "./App.css";
 
-function App() {
-  const [posts, setPosts] = useState();
-  const handleSubmit = () => {
-    event.preventDefault();
-    /* setPOSTS(prevState => ({
-        ...prevState,
 
-    })); */
-  }
+const App = () => {
+  const [posts, setPosts] = useState([]);
 
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [post, setPost] = useState("");
+  const [color, setColor] = useState();
+
+  const [publish, setPublish] = useState({});
+
+  const addPost = (e) => {
+    e.preventDefault();
+    if (name && surname && email && post) {
+      const newPublish = {
+        name: name,
+        surname: surname,
+        email: email,
+        color: color,
+        post: post,
+      };
+  
+      // Оновіть масив posts, додаючи новий об'єкт
+      setPosts([...posts, newPublish]);
+  
+      // Очистіть значення полів форми
+      setName("");
+      setSurname("");
+      setEmail("");
+      setPost("");
+      setColor("");
+    }
+  };
+  
   return (
-    <>
+    <div className="App">
       <h1>Create post</h1>
-      <form>
-        <label htmlFor="name">Name:
-        <input id="name" type="text" value={usrName} required /></label>
-        <label htmlFor="surname">Surname:
-        <input id="surname" type="text" value={usrSurname} required /></label>
-        <label htmlFor="email">Email:
-        <input id="email" type="email" value={usrEmail} required /></label>
-        <label htmlFor="post">Post:
-        <textarea id="post" cols="30" rows="5" value={usrPost}></textarea></label>
-        <input onClick={handleSubmit} className='button' type="submit" value="Submit" />
-    </form>
-    <hr />
-    <div className="posts">{posts}</div>
-    </>
-  )
-}
+      <PostForm
+      usrName={name}
+      usrSurname={surname} 
+      usrEmail={email} 
+      usrPost={post}
+      usrColor={color}
+      setName={setName}
+      setSurname={setSurname} 
+      setEmail={setEmail}
+      setPost={setPost}
+      setColor={setColor}
+      addPost={addPost}
+      />
+      <PostList posts={posts} />
+    </div>
+  );
+};
 
-export default App
+export default App;
