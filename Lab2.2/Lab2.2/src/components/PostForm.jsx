@@ -13,6 +13,8 @@ function PostForm (
     addPost
   }) {
     return (
+      <div>
+      <h1>Create post</h1>
       <form>
         <label htmlFor="name">Name:
         <input id="name" type="text" value={usrName} onChange={(e)=>{setName(e.target.value);}} required /></label>
@@ -25,8 +27,9 @@ function PostForm (
         <label htmlFor="color">Backgtound color:
         <input type="color" name="color" id="color" value={usrColor} onChange={(e)=>{setColor(e.target.value);}}/>
         </label>
-        <button onClick={addPost}>Create Post</button>
+        <button className="CreateBtn" onClick={addPost}>Create Post</button>
       </form>
+      </div>
     );
   };
   

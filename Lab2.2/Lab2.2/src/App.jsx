@@ -13,8 +13,6 @@ const App = () => {
   const [post, setPost] = useState("");
   const [color, setColor] = useState();
 
-  const [publish, setPublish] = useState({});
-
   const addPost = (e) => {
     e.preventDefault();
     if (name && surname && email && post) {
@@ -25,11 +23,7 @@ const App = () => {
         color: color,
         post: post,
       };
-  
-      // Оновіть масив posts, додаючи новий об'єкт
       setPosts([...posts, newPublish]);
-  
-      // Очистіть значення полів форми
       setName("");
       setSurname("");
       setEmail("");
@@ -40,7 +34,6 @@ const App = () => {
   
   return (
     <div className="App">
-      <h1>Create post</h1>
       <PostForm
       usrName={name}
       usrSurname={surname} 

@@ -1,7 +1,7 @@
-const TodoList = (props) => {
+const PostList = (props) => {
     return (
       <>
-      <ul>
+      <ul className="PostList">
         {props.posts.map((item, index) => (
           <li key={index} style={{ backgroundColor: item.color }}>
             <h2>{item.name}</h2>
@@ -15,5 +15,5 @@ const TodoList = (props) => {
   );
   };
   
-  export default TodoList;
+  export default PostList;
   
