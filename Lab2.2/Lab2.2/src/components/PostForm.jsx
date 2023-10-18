@@ -24,7 +24,7 @@ function PostForm (
         <input id="email" type="text" value={usrEmail} onChange={(e)=>{setEmail(e.target.value);}} required /></label>
         <label htmlFor="post">Post:
         <textarea id="post" cols="30" rows="5" value={usrPost} onChange={(e)=>{setPost(e.target.value);}} required></textarea></label>
-        <label htmlFor="color">Backgtound color:
+        <label htmlFor="color">Background color:
         <input type="color" name="color" id="color" value={usrColor} onChange={(e)=>{setColor(e.target.value);}}/>
         </label>
         <button className="CreateBtn" onClick={addPost}>Create Post</button>
